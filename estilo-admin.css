@@ -1,0 +1,295 @@
+  :root {
+    --color-bg: #ffffff;
+    --color-text-primary: #111111;
+    --color-text-secondary: #6b7280;
+    --color-accent: #000000;
+    --color-accent-hover: #333333;
+    --color-error: #d32f2f;
+    --font-sans: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --border-radius: 0.75rem;
+    --shadow-light: 0 1px 6px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 16px rgba(0,0,0,0.12);
+    --transition-speed: 0.3s;
+    --max-width: 1200px;
+  }
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background-color: var(--color-bg);
+    font-family: var(--font-sans);
+    color: var(--color-text-secondary);
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2 {
+    color: var(--color-text-primary);
+    font-weight: 700;
+    margin: 0;
+  }
+  h1 {
+    font-size: 2.75rem;
+    margin-bottom: 1.5rem;
+  }
+  a, button {
+    font-family: var(--font-sans);
+  }
+  button {
+    cursor: pointer;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.6rem 1.25rem;
+    font-weight: 600;
+    font-size: 1rem;
+    background-color: var(--color-accent);
+    color: #fff;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+  }
+  button:hover,
+  button:focus {
+    background-color: var(--color-accent-hover);
+    outline: none;
+    transform: scale(1.05);
+  }
+  button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+    transform: none;
+  }
+  header {
+    padding: 2rem 1rem;
+    background: var(--color-bg);
+    border-bottom: 1px solid #eee;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  }
+  nav {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+  }
+  .nav-label {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--color-text-primary);
+  }
+  main.container {
+    max-width: var(--max-width);
+    margin: 2rem auto 4rem;
+    padding: 0 1rem;
+  }
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+    font-size: 1rem;
+  }
+  thead tr {
+    border-bottom: 2px solid #ddd;
+  }
+  th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    vertical-align: middle;
+  }
+  th {
+    color: var(--color-text-primary);
+    font-weight: 700;
+    user-select: none;
+  }
+  tbody tr {
+    background: #fff;
+    box-shadow: var(--shadow-light);
+    border-radius: var(--border-radius);
+    transition: box-shadow var(--transition-speed);
+  }
+  tbody tr:hover {
+    box-shadow: var(--shadow-hover);
+  }
+  tbody tr td:first-child {
+    width: 80px;
+  }
+  .thumbnail {
+    width: 64px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    user-select: none;
+  }
+  .product-name {
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  .product-price {
+    font-weight: 700;
+    color: var(--color-accent);
+  }
+  .btn-edit,
+  .btn-delete {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-accent);
+    font-size: 1.2rem;
+    padding: 0.3rem 0.5rem;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+    user-select: none;
+  }
+  .btn-edit:hover,
+  .btn-edit:focus {
+    color: #065f46;
+    outline: none;
+    transform: scale(1.2);
+  }
+  .btn-delete:hover,
+  .btn-delete:focus {
+    color: var(--color-error);
+    outline: none;
+    transform: scale(1.2);
+  }
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 1rem;
+  }
+  .modal-overlay.active {
+    display: flex;
+  }
+  .modal {
+    background: var(--color-bg);
+    padding: 2rem 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-hover);
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+  }
+  .modal h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    color: var(--color-text-primary);
+  }
+  .modal .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    transition: color var(--transition-speed);
+  }
+  .modal .close-btn:hover,
+  .modal .close-btn:focus {
+    color: var(--color-accent);
+    outline: none;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  label {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-text-primary);
+  }
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-family: var(--font-sans);
+    resize: vertical;
+    transition: border-color var(--transition-speed);
+  }
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 5px var(--color-accent);
+  }
+  textarea {
+    min-height: 80px;
+  }
+  .file-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  #product-image-file {
+    flex-grow: 1;
+  }
+  #image-preview {
+    width: 64px;
+    height: 48px;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    box-shadow: var(--shadow-light);
+    user-select: none;
+    border: 1px solid #ccc;
+  }
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .btn-cancel {
+    background-color: #999;
+    color: #fff;
+  }
+  .btn-cancel:hover,
+  .btn-cancel:focus {
+    background-color: #777;
+  }
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 2.25rem;
+    }
+    th, td {
+      padding: 0.5rem 0.75rem;
+    }
+    .modal {
+      max-width: 90vw;
+    }
+    .file-input-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    #image-preview {
+      width: 100%;
+      height: auto;
+    }
+  }

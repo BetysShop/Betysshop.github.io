@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bety´s Shop - Bolsa para Dama</title>
+<link rel="stylesheet" href="estilo-detall.css">
+</head>
+<body>
+<header>
+  <nav class="container" aria-label="Navegación principal">
+    <img src="logo.png" alt="Logo de la tienda" class="logo" width="100" height="100">
+    <div class="logo" tabindex="0">Bety´s Shop</div>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="productos.html" aria-current="page">Productos</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container" role="main" aria-labelledby="product-name">
+  <article class="product-image-wrapper">
+    <img src="" alt="" class="product-image" id="product-image" />
+  </article>
+
+  <section class="product-details">
+    <h1 id="product-name" class="product-name"></h1>
+    <p class="product-description" id="product-description"></p>
+    <div class="price" aria-label="Precio" id="product-price"></div>
+
+    <form aria-label="Formulario para cantidad y añadir al carrito" id="add-to-cart-form">
+      <div class="quantity-selector">
+        <label for="quantity-input">Cantidad:</label>
+        <input type="number" id="quantity-input" name="quantity" min="1" value="1" aria-live="polite" aria-atomic="true" />
+      </div>
+      <button type="submit" class="btn-add-cart" aria-label="Agregar al carrito">Agregar al carrito</button>
+    </form>
+
+    <div class="additional-info" aria-label="Detalles del producto">
+      <h2>Detalles del producto</h2>
+      <pre id="product-details"></pre>
+    </div>
+
+    <section class="comments-section" aria-label="Sección de comentarios y valoraciones">
+      <h2>Comentarios y Valoraciones</h2>
+      <ul class="comment-list" id="comment-list" aria-live="polite" aria-atomic="true"></ul>
+
+      <form id="comment-form" class="comment-form" aria-label="Formulario para agregar comentario y valoración">
+        <label for="comment-author">Nombre</label>
+        <input type="text" id="comment-author" name="comment-author" placeholder="Tu nombre" required autocomplete="off" />
+
+        <label for="comment-rating">Valoración</label>
+        <select id="comment-rating" name="comment-rating" required aria-required="true">
+          <option value="">Selecciona una valoración</option>
+          <option value="5">★★★★★ - Excelente</option>
+          <option value="4">★★★★☆ - Muy buena</option>
+          <option value="3">★★★☆☆ - Buena</option>
+          <option value="2">★★☆☆☆ - Regular</option>
+          <option value="1">★☆☆☆☆ - Mala</option>
+        </select>
+
+        <label for="comment-text">Comentario</label>
+        <textarea id="comment-text" name="comment-text" placeholder="Escribe tu comentario aquí..." rows="4" required></textarea>
+
+        <button type="submit" aria-label="Enviar comentario y valoración">Enviar</button>
+      </form>
+    </section>
+  </section>
+</main>
+
+<script src="script-detall.js">
+</script>
+</body>
+</html>

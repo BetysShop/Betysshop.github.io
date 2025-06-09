@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Panel Administrativo Bety´s Shop - Gestión de Productos BolsasDama</title>
+<link rel="stylesheet" href="estilo-admin.css">
+</head>
+<body>
+<header>
+  <nav>
+    <img src="logo.png" alt="Logo de la tienda" class="logo" width="100" height="100">
+    <div class="logo" tabindex="0">Bety´s Shop</div>
+    <div class="nav-label">Panel Administrativo</div>
+  </nav>
+</header>
+
+<main class="container" role="main" aria-labelledby="main-title">
+  <h1 id="main-title">Administrar Productos</h1>
+  <div class="actions">
+    <button id="btn-add-product" aria-haspopup="dialog" aria-controls="modal-product-form">+ Agregar Producto</button>
+  </div>
+  <table aria-describedby="product-table-desc">
+    <caption id="product-table-desc" class="sr-only">Lista de productos con opciones para editar o eliminar</caption>
+    <thead>
+      <tr>
+        <th scope="col">Imagen</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Precio</th>
+        <th scope="col" style="width:120px;">Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="product-table-body" tabindex="0">
+    </tbody>
+  </table>
+</main>
+
+<div class="modal-overlay" id="modal-product-form" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+  <div class="modal">
+    <button class="close-btn" id="modal-close-btn" aria-label="Cerrar ventana de formulario">&times;</button>
+    <h2 id="modal-title">Editar Producto</h2>
+    <p id="modal-desc" class="sr-only">Formulario para agregar o editar un producto. Campos: nombre, descripción, detalles del producto, precio e imagen (archivo PNG o JPEG).</p>
+    <form id="product-form" novalidate>
+      <input type="hidden" id="product-id" name="product-id" />
+      <label for="product-name">Nombre</label>
+      <input type="text" id="product-name" name="product-name" required autocomplete="off" />
+      <label for="product-desc">Descripción</label>
+      <textarea id="product-desc" name="product-desc" required></textarea>
+      <label for="product-details">Detalles del producto</label>
+      <textarea id="product-details" name="product-details" placeholder="Agrega aquí detalles adicionales que se mostrarán en la página de detalle del producto" rows="5"></textarea>
+      <label for="product-price">Precio (MXN)</label>
+      <input type="number" id="product-price" name="product-price" min="0" step="50" required />
+      <label for="product-image-file">Subir Imagen (PNG o JPEG)</label>
+      <div class="file-input-wrapper">
+        <input type="file" id="product-image-file" name="product-image-file" accept="image/png, image/jpeg" />
+        <img id="image-preview" alt="Vista previa de la imagen del producto" src="" hidden />
+      </div>
+      <div class="form-actions">
+        <button type="submit" id="form-submit-btn">Guardar</button>
+        <button type="button" class="btn-cancel" id="form-cancel-btn">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="script-admin.js">
+</script>
+</body>
+</html>
