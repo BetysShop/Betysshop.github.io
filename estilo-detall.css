@@ -30,7 +30,7 @@
     text-decoration: none;
   }
   header {
-     padding: 2rem 1rem;
+    padding: 2rem 1rem;
     background: var(--color-bg);
     border-bottom: 1px solid #eee;
     z-index: 1000;
