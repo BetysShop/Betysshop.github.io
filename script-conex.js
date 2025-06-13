@@ -119,7 +119,25 @@ async function editProduct(productId) {
         alert('Error al cargar los datos del producto');
     }
 }
+//prueba del boton
+if (typeof window.supabase === 'undefined') {
+    console.error('Supabase no está cargado');
+    alert('Error: No se pudo cargar Supabase. Verifica la conexión a internet.');
+}
 
+// Verificar si el botón existe
+document.addEventListener('DOMContentLoaded', function() {
+    const btnAddProduct = document.getElementById('btn-add-product');
+    if (!btnAddProduct) {
+        console.error('Botón btn-add-product no encontrado');
+    } else {
+        console.log('Botón encontrado, agregando event listener');
+        btnAddProduct.addEventListener('click', function() {
+            console.log('Botón clickeado');
+            openAddProductModal();
+        });
+    }
+});
 // Eliminar producto
 async function deleteProduct(productId) {
     if (!confirm('¿Estás seguro de que deseas eliminar este producto?')) return;
