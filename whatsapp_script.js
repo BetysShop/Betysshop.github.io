@@ -149,7 +149,7 @@ async function saveCommentToSupabase(productId, comment) {
 }
 
 function sendWhatsAppMessage(productName, productPrice, productImage, quantity) {
-    const phoneNumber = '5219811083628'; 
+    const phoneNumber = '5219811700497'; 
     
     // Crear el mensaje
     let message = `¡Hola! Me interesa consultar la disponibilidad de:\n\n`;
